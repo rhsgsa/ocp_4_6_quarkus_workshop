@@ -1,0 +1,70 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: gitea
+    app.kubernetes.io/component: gitea
+    app.kubernetes.io/instance: gitea
+  name: gitea
+spec:
+  port:
+    targetPort: 3000-tcp
+  to:
+    kind: ""
+    name: gitea
+    weight: null
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    description: The Gitea server's http port
+  labels:
+    app: gitea
+  name: gitea
+spec:
+  ports:
+  - name: 3000-tcp
+    port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: gitea
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: gitea
+spec:
+  serviceName: "gitea"
+  selector:
+    matchLabels:
+      app: gitea
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gitea
+    spec:
+      containers:
+        - name: gitea
+          image: gitea/gitea:1.13.0
+          env:
+          ports:
+            - containerPort: 3000
+          #  - containerPort: 22
+          volumeMounts:
+          - name: giteadata
+            mountPath: /data
+  volumeClaimTemplates:
+  - metadata:
+      name: giteadata
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
