@@ -1,4 +1,4 @@
-You need to clone both workshop and infra projects
+This is repository with scripts to deploy quarkus workshop for openshift 4.6
 
 Make sure you login to openshift using oc login.
 
