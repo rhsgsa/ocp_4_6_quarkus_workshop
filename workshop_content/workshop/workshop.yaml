@@ -1,0 +1,13 @@
+name: Openshift for Developer
+
+modules:
+    activate:
+    - workshop-overview
+    - exercises/01-crw
+    - exercises/02-deployment
+    - exercises/03-image
+    - exercises/04-agile
+    - exercises/04-agile2
+    - exercises/05-config
+    - exercises/06-devops
+    - workshop-summary

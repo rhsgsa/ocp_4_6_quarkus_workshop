@@ -1,0 +1,10 @@
+<settings>
+  <mirrors>
+   <mirror>
+    <id>mirror</id>
+    <name>nexus</name>
+    <url>http://nexus.lab-infra.svc:8081/repository/maven-all-public/</url>
+    <mirrorOf>*</mirrorOf>
+   </mirror>
+  </mirrors>
+</settings>

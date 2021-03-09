@@ -1,0 +1,29 @@
+modules:
+    workshop-overview:
+        name: Workshop Overview
+        exit_sign: Module 1
+    exercises/01-crw:
+        name: Module 1
+        exit-sign: Module 2
+    exercises/02-deployment:
+        name: Module 2
+        exit-sign: Module 3
+    exercises/03-image:
+        name: Module 3
+        exit-sign: Module 4
+    exercises/04-agile:
+        name: Module 4.1
+        exit-sign: Module 4.2
+    exercises/04-agile2:
+        name: Module 4.2
+        exit-sign: Module 4.3
+    exercises/05-config:
+        name: Module 5
+        exit-sign: Module 6
+    exercises/06-devops:
+        name: Module 6
+        exit-sign: Module 7
+
+    workshop-summary:
+        name: Workshop Summary
+        exit_sign: Finish Workshop
